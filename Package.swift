@@ -10,11 +10,11 @@ let package = Package(
             targets: ["Prometheus"]),
         .executable(
             name: "PrometheusExample",
-            targets: ["PrometheusExample"]),
+            targets: ["PrometheusExample"])
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-metrics.git", from: "1.2.0"),
-        .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0"),
+        .package(url: "https://github.com/apple/swift-metrics.git", from: "1.0.0"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "1.0.0")
     ],
     targets: [
         .target(
@@ -25,6 +25,6 @@ let package = Package(
             dependencies: ["Prometheus", "Metrics"]),
         .testTarget(
             name: "SwiftPrometheusTests",
-            dependencies: ["Prometheus"]),
+            dependencies: ["Prometheus"])
     ]
 )
