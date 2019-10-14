@@ -154,7 +154,7 @@ final class PrometheusMetricsTests: XCTestCase {
         summary.recordSeconds(4)
         summary.recordSeconds(10000)
 
-        let promise = self.eventLoop.makePromise(of: String.self)
+        let promise = self.eventLoop.newPromise(of: String.self)
         prom.collect(promise.succeed)
         
         XCTAssertEqual(try! promise.futureResult.wait(), """
@@ -206,7 +206,7 @@ final class PrometheusMetricsTests: XCTestCase {
         let gauge = Gauge(label: "my_gauge")
         gauge.record(100)
 
-        let promise = self.eventLoop.makePromise(of: ByteBuffer.self)
+        let promise = self.eventLoop.newPromise(of: ByteBuffer.self)
         prom.collect(promise.succeed)
         var buffer = try! promise.futureResult.wait()
 
@@ -228,7 +228,7 @@ final class PrometheusMetricsTests: XCTestCase {
         let gauge = Gauge(label: "my_gauge")
         gauge.record(100)
 
-        let promise = self.eventLoop.makePromise(of: String.self)
+        let promise = self.eventLoop.newPromise(of: String.self)
         prom.collect(promise.succeed)
         let string = try! promise.futureResult.wait()
 

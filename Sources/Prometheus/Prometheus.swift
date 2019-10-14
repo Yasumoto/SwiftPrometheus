@@ -52,7 +52,7 @@ public class PrometheusClient {
             var buffer = ByteBufferAllocator().buffer(capacity: 0)
             self.metrics.forEach {
                 $0.collect(into: &buffer)
-                buffer.writeString("\n")
+                buffer.write(string: "\n")
             }
             succeed(buffer)
         }
